@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/get_navigation.dart';
+import 'package:mustakim_snack/home_page.dart';
 
 void main() {
   runApp(MyApp());
@@ -11,10 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      home: Scaffold(
-        appBar: AppBar(title: const Text('Kasir ')),
-        body: Center(child: Text('kasih pertama')),
-      ),
+      home: HomePage(),
     );
   }
 }
