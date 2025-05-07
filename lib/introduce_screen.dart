@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/src/extension_navigation.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:mustakim_snack/home_page.dart';
 
 class IntroduceScreen extends StatelessWidget {
@@ -16,7 +17,7 @@ class IntroduceScreen extends StatelessWidget {
             height: Get.height,
             width: Get.width,
             child: Image.network(
-              'https://i.pinimg.com/736x/2c/58/51/2c58517ffdd1a0dadbd80da4f4d70be3.jpg',
+              'https://i.pinimg.com/736x/bb/a1/d7/bba1d7c7ed78423e81775c5504a4e650.jpg',
               fit: BoxFit.cover,
             ),
           ),
@@ -26,20 +27,24 @@ class IntroduceScreen extends StatelessWidget {
                 top: 100.0,
                 left: 50,
               ), // atur nilai ini sesuai kebutuhan
-              child: Container(
-                decoration: BoxDecoration(
-                  color: Colors.red,
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 10),
-                  child: Text(
-                    'Mustakim Snack',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 50,
-                      fontWeight: FontWeight.bold,
+              child: Padding(
+                padding: const EdgeInsets.only(left: 40),
+                child: Container(
+                  decoration: BoxDecoration(
+                color: Colors.red,
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 10),
+                    child: Text(
+                      'Mustakim Snack',
+                      textAlign: TextAlign.center,
+                      style: GoogleFonts.bebasNeue(textStyle: TextStyle(color: Colors.white,fontSize: 50,fontWeight: FontWeight.bold,)),
+                      // style: TextStyle(
+                      //   color: Colors.white,
+                      //   fontSize: 50,
+                      //   fontWeight: FontWeight.bold,
+                      // ),
                     ),
                   ),
                 ),
@@ -56,17 +61,18 @@ class IntroduceScreen extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(horizontal: 10),
                     child: Container(
                       decoration: BoxDecoration(
-                        color: Colors.yellow,
+                        color: Colors.cyan,
                         borderRadius: BorderRadius.circular(20),
                       ),
                       child: Text(
                         'Selamat Datang di Mustakim Aneka Snack',
                         textAlign: TextAlign.center,
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 30,
-                          fontWeight: FontWeight.bold,
-                        ),
+                        style: GoogleFonts.robotoCondensed(textStyle: TextStyle(color: Colors.black, fontSize: 30, fontWeight: FontWeight.bold,)),
+                        // style: TextStyle(
+                        //   color: Colors.black,
+                        //   fontSize: 30,
+                        //   fontWeight: FontWeight.bold,
+                        // ),
                       ),
                     ),
                   ),
