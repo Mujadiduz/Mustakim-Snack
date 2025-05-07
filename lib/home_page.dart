@@ -23,6 +23,7 @@ class HomePage extends StatelessWidget {
         centerTitle: true,
       ),
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
             padding: const EdgeInsets.all(10),
@@ -53,15 +54,39 @@ class HomePage extends StatelessWidget {
               ),
             ),
           ),
-          Container(
-            height:100,
-            child: ListView(
-              children: [
-                Container(height: 100, color: Colors.red),
-                Container(height: 100, color: Colors.green),
-                Container(height: 100, color: Colors.amber),
-              ],
-            ),
+          // Container(
+          //   color: Colors.red,
+          //   height: 100,
+          //   child: ListView.builder(
+          //     itemCount: 3,
+          //     scrollDirection: Axis.horizontal,
+          //     itemBuilder:
+          //         (context, index) => Padding(
+          //           padding: const EdgeInsets.only(left: 5),
+          //           child: Container(width: 100, color: Colors.amber),
+          //         ),
+          //   ),
+          // ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: Text('Kategori', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30)),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              ShortingItem(
+                'snack',
+                "https://i.pinimg.com/736x/ea/04/fb/ea04fbb2a6ca2feb62678b4de17ad8b8.jpg",
+              ),
+              ShortingItem(
+                'minuman',
+                "https://i.pinimg.com/736x/2b/9b/b3/2b9bb3aa488ca50ccc4e3dc4c492355c.jpg",
+              ),
+              ShortingItem(
+                'mie instan',
+                "https://i.pinimg.com/736x/c2/ba/38/c2ba38d4f341cfa0501319559b5776eb.jpg",
+              ),
+            ],
           ),
 
           Expanded(
@@ -114,6 +139,25 @@ class HomePage extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+
+  Column ShortingItem(String text, String img) {
+    return Column(
+      children: [
+        Card(
+          child: Container(
+            height: 80,
+            width: 80,
+            decoration: BoxDecoration(
+              color: Colors.red,
+              borderRadius: BorderRadius.circular(10),
+              image: DecorationImage(image: NetworkImage(img)),
+            ),
+          ),
+        ),
+        Text(text),
+      ],
     );
   }
 }

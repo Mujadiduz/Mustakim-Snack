@@ -17,7 +17,7 @@ class IntroduceScreen extends StatelessWidget {
             height: Get.height,
             width: Get.width,
             child: Image.network(
-              'https://i.pinimg.com/736x/bb/a1/d7/bba1d7c7ed78423e81775c5504a4e650.jpg',
+              'https://i.pinimg.com/736x/cb/a3/87/cba3873c1755747c6910886f1c032613.jpg',
               fit: BoxFit.cover,
             ),
           ),

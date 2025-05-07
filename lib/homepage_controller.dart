@@ -4,9 +4,9 @@ class HomepageController extends GetxController {
   final List<Map<String, dynamic>> product = [
     {
       'gambar':
-          'https://i.pinimg.com/736x/bc/c2/6b/bcc26bf3e2410f7874f874c9eb18560e.jpg',
+          'https://i.pinimg.com/736x/4a/10/f4/4a10f40516b7733b67567af6c3a9ee26.jpg',
       'nama': 'Gopek',
-      'harga': "20.000",
+      'harga': "5,500",
     },
      {
       'gambar':
@@ -18,19 +18,19 @@ class HomepageController extends GetxController {
       'gambar':
           'https://i.pinimg.com/736x/ce/06/36/ce063640898e9d1301f792cb7c37a17c.jpg',
       'nama': 'Pillow',
-      'harga': "50.000",
+      'harga': "21.500",
     },
      {
       'gambar':
           'https://i.pinimg.com/736x/d7/a9/ba/d7a9ba5eafbbce5af76bb38f15ef31a3.jpg',
       'nama': 'Jet',
-      'harga': "40.000",
+      'harga': "19.500",
     },
      {
       'gambar':
           'https://i.pinimg.com/736x/42/6c/9a/426c9a25944d48630f524adb3580fe62.jpg',
       'nama': 'Qtela',
-      'harga': "30.000",
+      'harga': "24.000",
     },
      {
       'gambar':
@@ -42,7 +42,7 @@ class HomepageController extends GetxController {
       'gambar':
           'https://i.pinimg.com/736x/20/8c/80/208c8018f702abcef4512b1c6890b854.jpg',
       'nama': 'Sponge',
-      'harga': "25.000",
+      'harga': "48.000",
     },
      {
       'gambar':
