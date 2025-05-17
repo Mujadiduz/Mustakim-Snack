@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/src/extension_navigation.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mustakim_snack/create_barang.dart';
 import 'package:mustakim_snack/home_page.dart';
 
 class IntroduceScreen extends StatelessWidget {
@@ -17,7 +17,7 @@ class IntroduceScreen extends StatelessWidget {
             height: Get.height,
             width: Get.width,
             child: Image.network(
-              'https://i.pinimg.com/736x/cb/a3/87/cba3873c1755747c6910886f1c032613.jpg',
+              'https://i.pinimg.com/736x/ee/c0/33/eec0336d41170c4fd920447b50683baf.jpg',
               fit: BoxFit.cover,
             ),
           ),
@@ -82,7 +82,7 @@ class IntroduceScreen extends StatelessWidget {
                     width: 300,
                     child: ElevatedButton(
                       onPressed: () {
-                        Get.to(() => HomePage());
+                        Get.to(() => TambahBarangPage());
                       },
                       child: Text(
                         'Pesan Sekarang',

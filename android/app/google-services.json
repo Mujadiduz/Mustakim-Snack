@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "225458685155",
+    "project_id": "jadit-dce26",
+    "storage_bucket": "jadit-dce26.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:225458685155:android:64a4a851cb0a80964b71d6",
+        "android_client_info": {
+          "package_name": "com.example.mustakim_snack"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA_xAnTZKwzUrW3yGT_IXUER9-Rnk7GJQU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
