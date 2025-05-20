@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mustakim_snack/barang_controller.dart';
+import 'package:mustakim_snack/home_page.dart';
 import 'package:mustakim_snack/product_view.dart';
 
 class TambahBarangPage extends StatelessWidget {
@@ -40,7 +41,7 @@ class TambahBarangPage extends StatelessWidget {
 
                 if (nama.isNotEmpty && imageUrl.isNotEmpty && harga > 0) {
                   controller.addBarang(nama, harga, imageUrl);
-                  Get.to(()=>ListBarangPage()); // Kembali ke halaman sebelumnya setelah tambah
+                  Get.to(()=>HomePage()); // Kembali ke halaman sebelumnya setelah tambah
                 } else {
                   Get.snackbar('Gagal', 'Isi semua field dengan benar');
                 }

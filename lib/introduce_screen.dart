@@ -82,7 +82,7 @@ class IntroduceScreen extends StatelessWidget {
                     width: 300,
                     child: ElevatedButton(
                       onPressed: () {
-                        Get.to(() => TambahBarangPage());
+                        Get.off(() => HomePage());
                       },
                       child: Text(
                         'Pesan Sekarang',

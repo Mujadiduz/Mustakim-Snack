@@ -10,6 +10,7 @@ class BarangController extends GetxController {
         'namaBarang': nama,
         'hargaBarang': harga,
         'imageBarang': imageUrl,
+        'createdAt': Timestamp.now(),
       });
       print('Barang berhasil ditambahkan');
     } catch (e, stackTrace) {
