@@ -6,6 +6,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:mustakim_snack/create_barang.dart';
 import 'package:mustakim_snack/edit_barang.dart';
 import 'package:mustakim_snack/homepage_controller.dart';
+import 'package:mustakim_snack/keranjang_view.dart';
 import 'package:mustakim_snack/product_controller.dart';
 
 class HomePage extends StatelessWidget {
@@ -14,7 +15,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final homeC = Get.put(HomepageController());
-    final ProductController controller = Get.put(ProductController());
+    final ProductController controller = Get.put(ProductController(), permanent: true);
     return Scaffold(
       appBar: AppBar(
         title: const Text(
@@ -30,8 +31,9 @@ class HomePage extends StatelessWidget {
         actions: [
           IconButton(
             onPressed: () => Get.to(() => TambahBarangPage()),
-            icon: Icon(Icons.add_shopping_cart_outlined, color: Colors.white),
+            icon: Icon(Icons.add_business, color: Colors.white),
           ),
+          IconButton(onPressed: () => Get.to(() => KeranjangView()), icon: Icon(Icons.add_shopping_cart_outlined))
         ],
       ),
       body: RefreshIndicator(
@@ -124,7 +126,7 @@ class HomePage extends StatelessWidget {
                   return Center(child: CircularProgressIndicator());
                 }
                 return Container(
-                  height: 240,
+                  height: Get.height * .34,
                   child: ListView.builder(
                     scrollDirection: Axis.horizontal,
                     itemCount: controller.barangList.length,
@@ -135,62 +137,70 @@ class HomePage extends StatelessWidget {
                       return Row(
                         children: [
                           SizedBox(width: index == 0 ? 20 : 0),
-                          Card(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Container(
-                                  height: 110,
-                                  // width: double.infinity,
-                                  width: 100,
-                                  decoration: BoxDecoration(
-                                    color: Colors.black,
-                                    borderRadius: BorderRadius.only(
-                                      topLeft: Radius.circular(10),
-                                      topRight: Radius.circular(10),
-                                    ),
-                                    image: DecorationImage(
-                                      image: NetworkImage(data.imageUrl),
-                                      fit: BoxFit.cover,
-                                    ),
-                                  ),
-                                ),
-                                SizedBox(height: 20),
-                                Text(
-                                  data.nama,
-                                  style: TextStyle(
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                                Text(
-                                  'Rp ${data.harga}',
-                                  style: TextStyle(
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                                Row(
-                                  children: [
-                                    IconButton(
-                                      onPressed: () {
-                                        Get.to(()=>EditBarang(), arguments: data);
-                                      },
-                                      icon: Icon(Icons.edit),
-                                    ),
-                                    IconButton(
-                                      onPressed: () async {
-                                        await controller.deleteBarang(data.id);
-                                        controller.fetchBarang();
-                                      },
-                                      icon: Icon(
-                                        Icons.delete,
-                                        color: Colors.red,
+                          InkWell(
+                            onTap: () {
+                              controller.tambahKeKeranjang(data);
+                            },
+                            child: Card(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Container(
+                                    height: 110,
+                                    // width: double.infinity,
+                                    width: 100,
+                                    decoration: BoxDecoration(
+                                      color: Colors.black,
+                                      borderRadius: BorderRadius.only(
+                                        topLeft: Radius.circular(10),
+                                        topRight: Radius.circular(10),
+                                      ),
+                                      image: DecorationImage(
+                                        image: NetworkImage(data.imageUrl),
+                                        fit: BoxFit.cover,
                                       ),
                                     ),
-                                  ],
-                                ),
-                              ],
+                                  ),
+                                  SizedBox(height: 20),
+                                  Text(
+                                    data.nama,
+                                    style: TextStyle(
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                  Text(
+                                    'Rp ${data.harga}',
+                                    style: TextStyle(
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                  Row(
+                                    children: [
+                                      IconButton(
+                                        onPressed: () {
+                                          Get.to(
+                                            () => EditBarang(),
+                                            arguments: data,
+                                          );
+                                        },
+                                        icon: Icon(Icons.edit),
+                                      ),
+                                      IconButton(
+                                        onPressed: () async {
+                                          await controller.deleteBarang(data.id);
+                                          controller.fetchBarang();
+                                        },
+                                        icon: Icon(
+                                          Icons.delete,
+                                          color: Colors.red,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                           SizedBox(
@@ -211,7 +221,7 @@ class HomePage extends StatelessWidget {
                   return Center(child: CircularProgressIndicator());
                 }
                 return Container(
-                  height: 240,
+                  height: Get.height * .34,
                   child: ListView.builder(
                     scrollDirection: Axis.horizontal,
                     itemCount: controller.barangList.length,

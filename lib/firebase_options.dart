@@ -59,4 +59,5 @@ class DefaultFirebaseOptions {
     projectId: 'jadit-dce26',
     storageBucket: 'jadit-dce26.firebasestorage.app',
   );
+
 }

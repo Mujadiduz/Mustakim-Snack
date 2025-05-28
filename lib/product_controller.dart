@@ -1,7 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/src/simple/get_controllers.dart';
+import 'package:intl/intl.dart';
 import 'package:mustakim_snack/barang.dart';
 
 class ProductController extends GetxController {
@@ -11,11 +13,34 @@ class ProductController extends GetxController {
   var nama = RxnString();
   var harga = RxnString();
   var imageUrl = RxnString();
+  var keranjang = <Barang>[].obs;
+  final formatCurrency = NumberFormat('#,###', 'id_ID');
 
   @override
   void onInit() {
     super.onInit();
     fetchBarang();
+  }
+
+  void tambahKeKeranjang(Barang barang) {
+    bool sudahAda = keranjang.any((item) => item.nama == barang.nama);
+
+    if (sudahAda) {
+      Get.snackbar('Info', '${barang.nama} sudah ada di keranjang');
+    } else {
+      keranjang.add(barang);
+      Get.snackbar('Sukses', '${barang.nama} ditambahkan ke keranjang');
+      // totalItem.value = keranjang.length;
+      // totalHarga.value = keranjang.length;
+    }
+  }
+
+  double get totalHarga {
+    return keranjang.fold(0.0, (total, item) => total + item.harga);
+  }
+
+  int get totalItem {
+    return keranjang.length;
   }
 
   Future<void> fetchBarang() async {
