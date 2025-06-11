@@ -19,7 +19,7 @@ class Barang {
       id: doc.id,
       nama: data['namaBarang'] ?? '',
       harga: data['hargaBarang'] ?? 0,
-      imageUrl: data['imageBarang'] ?? '',
+      imageUrl: data['imageUrl'] ?? '',
     );
   }
 }

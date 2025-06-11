@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/get_core.dart';
+import 'package:mustakim_snack/keranjang_controller.dart';
 import 'package:mustakim_snack/product_controller.dart';
 
 class KeranjangView extends StatelessWidget {
@@ -8,7 +9,7 @@ class KeranjangView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final homeC = Get.find<ProductController>();
+    final keranjangC = Get.find<KeranjangController>();
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 10),
@@ -17,16 +18,16 @@ class KeranjangView extends StatelessWidget {
           children: [
             Expanded(
               child: ListView.builder(
-                itemCount: homeC.keranjang.length,
+                itemCount: keranjangC.keranjang.length,
                 itemBuilder: (context, index) {
-                  final data = homeC.keranjang[index];
+                  final data = keranjangC.keranjang[index];
                   return Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       SizedBox(width: index == 0 ? 20 : 0),
                       InkWell(
                         onTap: () {
-                          homeC.tambahKeKeranjang(data);
+                          keranjangC.tambahKeKeranjang(data);
                         },
                         child: Card(
                           child: Column(
@@ -85,7 +86,7 @@ class KeranjangView extends StatelessWidget {
                         ),
                       ),
                       SizedBox(
-                        width: homeC.keranjang.length - 1 == index ? 20 : 0,
+                        width: keranjangC.keranjang.length - 1 == index ? 20 : 0,
                       ),
                     ],
                   );
@@ -96,14 +97,14 @@ class KeranjangView extends StatelessWidget {
               children: [
                 Text('total item:'),
                 Spacer(),
-                Text('${homeC.totalItem}'),
+                Text('${keranjangC.totalItem}'),
               ],
             ),
             Row(
               children: [
                 Text('total harga:'),
                 Spacer(),
-                Text(homeC.formatCurrency.format(homeC.totalHarga)),
+                Text(keranjangC.formatCurrency.format(keranjangC.totalHarga)),
               ],
             ),
             SizedBox(

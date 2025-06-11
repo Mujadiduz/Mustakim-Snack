@@ -6,6 +6,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:mustakim_snack/create_barang.dart';
 import 'package:mustakim_snack/edit_barang.dart';
 import 'package:mustakim_snack/homepage_controller.dart';
+import 'package:mustakim_snack/keranjang_controller.dart';
 import 'package:mustakim_snack/keranjang_view.dart';
 import 'package:mustakim_snack/product_controller.dart';
 
@@ -15,7 +16,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final homeC = Get.put(HomepageController());
-    final ProductController controller = Get.put(ProductController(), permanent: true);
+    var keranjangC = Get.put(KeranjangController());
     return Scaffold(
       appBar: AppBar(
         title: const Text(
@@ -37,7 +38,7 @@ class HomePage extends StatelessWidget {
         ],
       ),
       body: RefreshIndicator(
-        onRefresh: controller.fetchBarang,
+        onRefresh: homeC.fetchBarang,
         child: SingleChildScrollView(
           physics: AlwaysScrollableScrollPhysics(),
           child: Column(
@@ -122,24 +123,24 @@ class HomePage extends StatelessWidget {
                 ),
               ),
               Obx(() {
-                if (controller.barangList.isEmpty) {
+                if (homeC.barangList.isEmpty) {
                   return Center(child: CircularProgressIndicator());
                 }
                 return Container(
                   height: Get.height * .34,
                   child: ListView.builder(
                     scrollDirection: Axis.horizontal,
-                    itemCount: controller.barangList.length,
+                    itemCount: homeC.barangList.length,
                     itemBuilder: (context, index) {
                       // final data = homeC.product[index];
-                      final data = controller.barangList[index];
+                      final data = homeC.barangList[index];
                       log('id: ${data.id}');
                       return Row(
                         children: [
                           SizedBox(width: index == 0 ? 20 : 0),
                           InkWell(
                             onTap: () {
-                              controller.tambahKeKeranjang(data);
+                              keranjangC.tambahKeKeranjang(data);
                             },
                             child: Card(
                               child: Column(
@@ -189,8 +190,8 @@ class HomePage extends StatelessWidget {
                                       ),
                                       IconButton(
                                         onPressed: () async {
-                                          await controller.deleteBarang(data.id);
-                                          controller.fetchBarang();
+                                          await homeC.deleteBarang(data.id);
+                                          homeC.fetchBarang();
                                         },
                                         icon: Icon(
                                           Icons.delete,
@@ -205,7 +206,7 @@ class HomePage extends StatelessWidget {
                           ),
                           SizedBox(
                             width:
-                                controller.barangList.length - 1 == index
+                                homeC.barangList.length - 1 == index
                                     ? 20
                                     : 0,
                           ),
@@ -217,17 +218,17 @@ class HomePage extends StatelessWidget {
               }),
               SizedBox(height: 50),
               Obx(() {
-                if (controller.barangList.isEmpty) {
+                if (homeC.barangList.isEmpty) {
                   return Center(child: CircularProgressIndicator());
                 }
                 return Container(
                   height: Get.height * .34,
                   child: ListView.builder(
                     scrollDirection: Axis.horizontal,
-                    itemCount: controller.barangList.length,
+                    itemCount: homeC.barangList.length,
                     itemBuilder: (context, index) {
                       // final data = homeC.product[index];
-                      final data = controller.barangList[index];
+                      final data = homeC.barangList[index];
                       return Row(
                         children: [
                           SizedBox(width: index == 0 ? 20 : 0),
@@ -286,7 +287,7 @@ class HomePage extends StatelessWidget {
                           ),
                           SizedBox(
                             width:
-                                controller.barangList.length - 1 == index
+                                homeC.barangList.length - 1 == index
                                     ? 20
                                     : 0,
                           ),
