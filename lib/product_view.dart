@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:mustakim_snack/barang_controller.dart';
 import 'package:mustakim_snack/product_controller.dart';
 
 class ListBarangPage extends StatelessWidget {

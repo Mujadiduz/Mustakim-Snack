@@ -54,12 +54,14 @@ class BarangController extends GetxController {
           'createdAt': Timestamp.now(),
         });
         print('Barang berhasil ditambahkan');
-        Get.snackbar('Sukses', 'Produk berhasil ditambahkan');
+        Get.snackbar('Sukses', 'Produk berhasil ditambahkan', backgroundColor: Colors.green);
         Get.to(
           () => HomePage(),
         ); // Kembali ke halaman sebelumnya setelah tambah
+        // Get.snackbar('Success', 'Success menambahkan ')
+        // Get.back();
       } else {
-        Get.snackbar('Gagal', 'Isi semua field dengan benar');
+        Get.snackbar('Gagal', 'Isi semua field dengan benar', backgroundColor: Colors.red);
       }
     } catch (e, stackTrace) {
       print('Gagal menambahkan barang: $e');
