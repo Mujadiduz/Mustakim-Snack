@@ -29,9 +29,6 @@ class NotaPage extends StatelessWidget {
     );
   }
 
-  // ================================
-  // ISI TIKET / NOTA
-  // ================================
   Widget _buildTicketContent(KeranjangController c) {
     return Obx(() {
       return Column(
@@ -89,9 +86,6 @@ class NotaPage extends StatelessWidget {
     });
   }
 
-  // ================================
-  // HEADER STRUK
-  // ================================
   Widget _rowHeader() {
     return const Row(
       children: [
@@ -146,8 +140,6 @@ class NotaPage extends StatelessWidget {
   }
 
   // ================================
-  // ROW TOTAL
-  // ================================
   Widget _rowTotal(int total) {
     return Padding(
       padding: const EdgeInsets.only(top: 8),
@@ -168,9 +160,6 @@ class NotaPage extends StatelessWidget {
     );
   }
 
-  // ================================
-  // FORMAT RUPIAH
-  // ================================
   String _rupiah(int value) {
     return "Rp ${value.toString().replaceAllMapped(RegExp(r'\B(?=(\d{3})+(?!\d))'), (match) => '.')}";
   }
