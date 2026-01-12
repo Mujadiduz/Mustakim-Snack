@@ -17,6 +17,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.0"
+  adaptive_ticket_view:
+    dependency: "direct main"
+    description:
+      name: adaptive_ticket_view
+      sha256: "9144ef912ce78dc348a3bc233f6053c1fdd84a8b702dc2f6829dddef39b3e8c5"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.1"
   app_links:
     dependency: transitive
     description:

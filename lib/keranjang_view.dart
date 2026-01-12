@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/get_core.dart';
 import 'package:mustakim_snack/keranjang_controller.dart';
+import 'package:mustakim_snack/nota.dart';
 import 'package:mustakim_snack/product_controller.dart';
 
 class KeranjangView extends StatelessWidget {
@@ -110,7 +111,7 @@ class KeranjangView extends StatelessWidget {
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () => Get.to(NotaPage()),
                 style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
                 child: Text('BAYAR'),
               ),
