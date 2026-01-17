@@ -96,24 +96,28 @@ class KeranjangView extends StatelessWidget {
             ),
             Row(
               children: [
-                Text('total item:'),
+                Text('total item:', style: TextStyle(fontSize: 25)),
                 Spacer(),
-                Text('${keranjangC.totalItem}'),
+                Text('${keranjangC.totalItem}',style: TextStyle(fontSize: 25),),
               ],
             ),
             Row(
               children: [
-                Text('total harga:'),
+                Text('total harga:', style: TextStyle(fontSize: 25)),
                 Spacer(),
-                Text(keranjangC.formatCurrency.format(keranjangC.totalHarga)),
+                Text(keranjangC.formatCurrency.format(keranjangC.totalHarga),style: TextStyle(fontSize: 25),),
               ],
             ),
-            SizedBox(
-              width: double.infinity,
-              child: ElevatedButton(
-                onPressed: () => Get.to(NotaPage()),
-                style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
-                child: Text('BAYAR'),
+            Padding(
+              padding: const EdgeInsets.only(bottom: 10),
+              child: SizedBox(
+                height: 40,
+                width: double.infinity,
+                child: ElevatedButton(
+                  onPressed: () => Get.to(NotaPage()),
+                  style: ElevatedButton.styleFrom(backgroundColor: Colors.black),
+                  child: Text('BAYAR',style: TextStyle(fontSize: 18, color: Colors.white)),
+                ),
               ),
             ),
           ],

@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mustakim_snack/auth_controller.dart';
 import 'package:mustakim_snack/create_barang.dart';
 import 'package:mustakim_snack/edit_barang.dart';
 import 'package:mustakim_snack/homepage_controller.dart';
@@ -16,6 +17,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     final homeC = Get.put(HomepageController());
     var keranjangC = Get.put(KeranjangController());
+    var authC = Get.find<AuthController>();
     return Scaffold(
       appBar: AppBar(
         title: const Text(
@@ -33,7 +35,8 @@ class HomePage extends StatelessWidget {
             onPressed: () => Get.to(() => TambahBarangPage()),
             icon: Icon(Icons.add_business, color: Colors.white),
           ),
-          IconButton(onPressed: () => Get.to(() => KeranjangView()), icon: Icon(Icons.add_shopping_cart_outlined))
+          IconButton(onPressed: () => Get.to(() => KeranjangView()), icon: Icon(Icons.add_shopping_cart_outlined)),
+          IconButton(onPressed: () => authC.logout(), icon: Icon(Icons.logout))
         ],
       ),
       body: RefreshIndicator(

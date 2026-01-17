@@ -6,7 +6,7 @@ class LoginController extends GetxController {
   final email = ''.obs;
   final pass = ''.obs;
   final _auth = FirebaseAuth.instance;
-  final isSeen = false.obs;
+  final isSeen = true.obs;
 
   Future<void> login({required String email, required String pass}) async {
     try {
